@@ -1,0 +1,98 @@
+
+<HTML>
+<!----------------------------- Member ---------------------------------->
+<HEAD>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/opera.css">
+<SCRIPT LANGUAGE="JavaScript" SRC="../common/stylesheet.js"></SCRIPT>
+<TITLE>BeMDI SDK -- CZOrderedViewManager::Z_ViewPositionChanged</TITLE></HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="top">
+
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+	<TD COLSPAN="2" BGCOLOR="#FFCB00">
+		<FONT FACE="Helvetica" SIZE="+1" CLASS="header">&nbsp;<I>BeMDI SDK</I></FONT>
+	</TD>
+</TR>
+</TABLE>
+
+<FONT FACE="Helvetica" SIZE="-1" >
+<P ALIGN="right" CLASS="linktext">
+	<A HREF="CZOrderedViewManager.html"><IMG SRC="../common/arrow_up.gif" BORDER="0"></A>&nbsp;
+	<A HREF="CZOrderedViewManager.html">CZOrderedViewManager</A>
+</P>
+</FONT>
+
+<FONT FACE="Helvetica" SIZE="5">
+	<B CLASS="classheader">CZOrderedViewManager::Z_ViewPositionChanged</B>
+</FONT>
+
+<HR NOSHADE>
+
+<DL>
+	<DT>
+	</DT>
+	<DD>
+		<FONT FACE="Helvetica" CLASS="doc">
+		Update clipping after a view was resized or moved.
+		</FONT>
+		
+		<TABLE WIDTH="100%">
+		<TR>
+			<TD BGCOLOR="#DDDDDD" CLASS="member">
+				<CODE>
+				virtual void <B>Z_ViewPositionChanged</B>(<A HREF="CZOrderedView.html" >CZOrderedView</A> *view, BRect oldPos, BRect newPos, bool redrawRevealed=false);
+				
+				</CODE>
+			</TD>
+		<TR>
+		</TABLE>
+		
+	</DD>
+	
+		<DT>
+			<BR><BR>
+			<FONT FACE="Helvetica"><B CLASS="sectionheader">Parameters</B></FONT>
+		</DT>
+		<DD>
+			<TABLE BORDER=0 CELLPADDING=2 CELLSPACING=2>
+<TR><TD CLASS="descr" VALIGN="top" BGCOLOR="#DDDDDD"><B><FONT FACE="Helvetica">oldPos</FONT></B></TD><TD CLASS="member" VALIGN="top" BGCOLOR="#DDDDDD"><FONT FACE=Helvetica>Position of the view before it was resize or moved. In screen coordiantes.</FONT></TD></TR>
+<TR><TD CLASS="descr" VALIGN="top" BGCOLOR="#DDDDDD"><B><FONT FACE="Helvetica">newPos</FONT></B></TD><TD CLASS="member" VALIGN="top" BGCOLOR="#DDDDDD"><FONT FACE=Helvetica>New position of the view. In screen coordiantes. If this method is called, because a view was hidden or closed 'oldPos' and 'newPos' should both contain  the position before the view was modified.</FONT></TD></TR>
+<TR><TD CLASS="descr" VALIGN="top" BGCOLOR="#DDDDDD"><B><FONT FACE="Helvetica">redrawRevealed</FONT></B></TD><TD CLASS="member" VALIGN="top" BGCOLOR="#DDDDDD"><FONT FACE=Helvetica>If set to true the revealed areas are invalidated.</FONT></TD></TR>
+</TABLE>
+
+		</DD>
+	
+	
+		<DT>
+			<BR><BR>
+			<FONT FACE="Helvetica"><B CLASS="sectionheader">Remarks</B></FONT>
+		</DT>
+		<DD>
+			<FONT FACE="Helvetica" CLASS="doc">
+				 Called to recalculate clipping for a view that moved or was resized. It is also called by
+ Z_UpdateClipping to update the clipping when a view was hidden or closed.
+
+				
+			</FONT>
+		</DD>
+	
+</DL>
+
+<FONT FACE="Helvetica" SIZE="-1">
+	<P ALIGN="right" CLASS="linktext">
+		<A HREF="#top"><IMG SRC="../common/arrow_top.gif" BORDER="0"></A>&nbsp;
+		<A HREF="#top">Top</A>
+	</P>
+</FONT>
+<HR NOSHADE>
+<CENTER>
+<FONT FACE="Helvetica" SIZE="-1" CLASS="footer">
+<I>
+	&copy; 2000 by <A HREF="http://www.3rd-evolution.de">3rd-evolution</A><BR>
+</I>
+</FONT>
+</CENTER>
+
+</BODY>
+</HTML>

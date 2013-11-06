@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/opera.css">
+<SCRIPT LANGUAGE="JavaScript" SRC="../common/stylesheet.js"></SCRIPT>
+<TITLE>BeMDI SDK -- Overview</TITLE></head>
+<BODY BGCOLOR=#FFFFFF>
+
+<A NAME="top">
+
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+	<TD COLSPAN="2" BGCOLOR="#FFCB00">
+		<FONT FACE="Helvetica" SIZE="+1" CLASS="header">&nbsp;<I>BeMDI SDK</I></FONT>
+	</TD>
+</TR>
+</TABLE>
+
+<FONT FACE="Helvetica" SIZE="-1" >
+<P ALIGN="right" CLASS="linktext">
+	<A HREF="../index.html"><IMG SRC="../common/arrow_up.gif" BORDER="0"></A>&nbsp;
+	<A HREF="../index.html">Homepage</A>
+</P>
+</FONT>
+
+<HR NOSHADE>
+
+<FONT FACE="Helvetica" SIZE="5">
+	<B CLASS="classheader">BeMDI SDK</B>
+</FONT>
+
+<DL>
+<DT>
+	<FONT FACE="Helvetica"><B CLASS="sectionheader">Categories</B></FONT>
+</DT>
+<DD>
+	<TABLE BORDER="0" CELLPADDING="2" CELLSPACING="2">
+		<TR>
+			<TD BGCOLOR="#DDDDDD" CLASS="member" VALIGN="top">
+				<A HREF="class_index.html">
+					<FONT FACE="Helvetica" CLASS="member">Classes</FONT>
+				</A>
+			</TD>
+		</TR>
+		<TR>
+			<TD BGCOLOR="#DDDDDD" CLASS="member" VALIGN="top">
+				<A HREF="global_index.html">
+					<FONT FACE="Helvetica" CLASS="member">Globals and Constants</FONT>
+				</A>
+			</TD>
+		</TR>
+		<!--
+		<TR>
+			<TD BGCOLOR="#DDDDDD" CLASS="member" VALIGN="top">
+				<A HREF="func_index.html">
+					<FONT FACE="Helvetica" CLASS="member">Functions</FONT>
+				</A>
+			</TD>
+		</TR>
+		-->
+		<TR>
+			<TD BGCOLOR="#DDDDDD" CLASS="member" VALIGN="top">
+				<A HREF="../tutorial/index.html">
+					<FONT FACE="Helvetica" CLASS="member">Tutorial</FONT>
+				</A>
+			</TD>
+		</TR>
+	</TABLE>
+</DD>
+<DT>
+    <BR>
+	<FONT FACE="Helvetica"><B CLASS="sectionheader">Overview</B></FONT>
+</DT>
+<DD>
+	<FONT FACE="Helvetica" CLASS="doc">
+		<P>Under Windows all document windows of an application are contained in a top-level application
+   window. This is called a multiple document interface (or MDI for short).
+   Under BeOS the document windows are floating free on your desktop. You don't even
+   know, which window belongs to which application. In Windows terminology this would be
+   called a single document interface (SDI). (This isn't 100% true. SDI normally implies, that
+   every window is displayed by a seperate process. This isn't true for BeOS applications.)</P>
+<P>Both concepts are useful. Under Windows most webbrowsers use a BeOS like interface, but
+   text processors and editors use the multiple document interface.</P>
+<P>Under BeOS you didn't have an option. You can't add a window as a child to another window.
+   And normal BViews can't be used to simulate windows, because they don't maintain a z-order.</P>
+<P>But now the BeMDI framework brings MDI windows to the BeOS. It includes various classes,
+   which work together to create the look and feel of a MDI interface.</P>
+<P>Of course this framework doesn't change BeOS. You still can't put windows inside other
+   windows. MDI "windows" are still BViews, which simply look and behave like windows. 
+   But in various details, they don't behave like BViews. They maintain a z-order and sibling
+   views clip each other.</P>
+
+	</FONT>
+</DD>
+<DT>
+    <BR>
+	<FONT FACE="Helvetica"><B CLASS="sectionheader">License</B></FONT>
+</DT>
+<DD>
+	<FONT FACE="Helvetica" CLASS="doc">
+		<P>Copyright &copy; 2000 by 3rd-evolution. This library is free software; you can
+redistribute it and/or midfiy it under the terms of the <A HREF="../lgpl.html">
+GNU Lesser General Public License</A>.
+
+	</FONT>
+</DD>
+</DL>
+
+<FONT FACE="Helvetica" SIZE="-1">
+	<P ALIGN="right" CLASS="linktext">
+		<A HREF="#top"><IMG SRC="../common/arrow_top.gif" BORDER="0"></A>&nbsp;
+		<A HREF="#top">Top</A>
+	</P>
+</FONT>
+<HR NOSHADE>
+<CENTER>
+<FONT FACE="Helvetica" SIZE="-1" CLASS="footer">
+<I>
+	&copy; 2000 by <A HREF="http://www.3rd-evolution.de">3rd-evolution</A><BR>
+</I>
+</FONT>
+</CENTER>
+
+</BODY>
+</HTML>

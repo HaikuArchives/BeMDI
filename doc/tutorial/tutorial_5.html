@@ -1,0 +1,172 @@
+<HTML>
+<HEAD>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/opera.css">
+<SCRIPT LANGUAGE="JavaScript" SRC="../common/stylesheet.js"></SCRIPT>
+<TITLE>BeMDI SDK -- Tutorial Step 5</TITLE></HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="top">
+
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+    <TD COLSPAN="2" BGCOLOR="#FFCB00">
+        <FONT FACE="Helvetica" SIZE="+1" CLASS="header">&nbsp;<I>BeMDI SDK</I></FONT>
+    </TD>
+</TR>
+</TABLE>
+
+
+<TABLE BORDER="0" WIDTH="100%">
+<TR>
+<TD ALIGN="left" WIDTH="33%">
+    <A HREF="tutorial_4.html"><IMG SRC="../common/arrow_left.gif" ALT="left" BORDER="0"></A>&nbsp;
+    <A HREF="tutorial_4.html"><FONT FACE="Helvetica" SIZE="-1" CLASS="linktext">4. Add a MDI view menu</FONT></A>
+</TD>
+<TD ALIGN="center" WIDTH="33%">
+    <BR>
+</TD>
+<TD ALIGN="right">
+    <A HREF="index.html"><IMG SRC="../common/arrow_up.gif" ALT="up" BORDER="0"></A>&nbsp;
+    <A HREF="index.html"><FONT FACE="Helvetica" SIZE="-1" CLASS="linktext">Tutorial Index</FONT></A>
+</TD>
+</TR>
+</TABLE>
+
+
+<FONT FACE="Helvetica" SIZE="5">
+    <B CLASS="classheader">5. Create some MDI views</B>
+</FONT>
+
+<HR NOSHADE>
+
+<FONT FACE="Helvetica">
+<P CLASS="doc">
+Before we can display anything inside a MDI view we need a view class
+which is later used as sub-view of your MDI view.
+</P>
+
+<P CLASS="doc">
+When a MDI view is maximized its first child (ChildAt(0)) replaces the
+MDI client view. So if you want to display more than one view inside a
+maximizable MDI view add them to a common parent view, which is the
+first child of the MDI view.
+</P>
+
+<P CLASS="doc">
+When you create a BWindow the frame rectangle you pass to the
+constructor specifies the content area of the window. CMDIView behaves
+a bit different. When you pass a frame rectangle to the CMDIView
+constructor you really specify the frame rectangle of the view.
+Depending on the flags you've passed to the constructor the content
+area may be a lot smaller.
+</P>
+
+<P CLASS="doc">
+If you only care about the size of the frame rectangle and not about
+the size of the content area simply pass the frame rectangle to the
+CMDIView constructor. Later you can request the size of the content
+area by calling the ClientRect() method.
+</P>
+
+<P CLASS="doc">
+But normally you care about the size of the content area. Then you can
+call the constructor with 'resizeToClient' set to true. Then the MDI
+view ignores the size of the frame rectangle and adjusts itself to the
+size of the passed client view. The content area is then big enough to
+hold the client view.
+</P>
+
+<P CLASS="doc">
+In the example below I use the first variant to construct a MDI view.
+The example client view simply displays a pattern of red and blue
+lines.
+</P>
+</FONT>
+
+<CODE>
+<PRE>
+class CExampleView : public BView
+{
+    public:
+    CExampleView(BRect frame) : 
+        BView(frame, "ExampleView", B_FOLLOW_ALL_SIDES, 
+            B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE) {}
+            
+    virtual void Draw(BRect updateRect)
+    {
+        SetHighColor(CColor::White);
+        FillRect(updateRect);
+    
+        const int32 lines = 20;
+        
+        float width  = Bounds().Width();
+        float height = Bounds().Height();
+        
+        float dx = width / lines;
+        float dy = height / lines;
+        
+        SetHighColor(CColor::Red);
+        
+        for(int i=0 ; i&lt;lines ; i++) {
+            StrokeLine(BPoint(i*dx, 0), BPoint(0, height-i*dy));
+        }
+    
+        SetHighColor(CColor::Blue);
+        
+        for(int i=0 ; i&lt;lines ; i++) {
+            StrokeLine(BPoint(i*dx, height), BPoint(width,height-i*dy));
+        }
+    }
+    
+    virtual void AttachedToWindow()
+    {
+        SetViewColor(B_TRANSPARENT_COLOR);
+    }
+};
+
+CExampleWindow::CExampleWindow(...)
+{
+    ....
+
+    CMDIView *mdiView = 
+        new CMDIView(BRect(20, 20, 160, 160), "MDI Test");
+                                
+    CExampleView *exampleView = 
+        new CExampleView(mdiView-&gt;ClientRect());
+        
+    mdiView-&gt;AddChild(exampleView);
+    
+    client-&gt;AddMDIView(mdiView);
+}
+</PRE>
+</CODE>
+
+<FONT FACE="Helvetica">
+<P CLASS="doc">
+Please note that I set the view color to B_TRANSPARENT_COLOR and erase
+the
+background in the implementation of Draw(). Instead I could also set
+the view color to white. But the used solution looks a lot better.
+When you use a view color other than B_TRANSPARENT_COLOR the view
+flickers
+during resize and move, while the above solution is almost flicker
+free.
+</P>
+</FONT>
+
+<FONT FACE="Helvetica" SIZE="-1">
+    <P ALIGN="right" CLASS="linktext">
+        <A HREF="#top"><IMG SRC="../common/arrow_top.gif" BORDER="0"></A>&nbsp;
+        <A HREF="#top">Top</A>
+    </P>
+</FONT>
+<HR NOSHADE>
+<CENTER>
+<FONT FACE="Helvetica" SIZE="-1" CLASS="footer">
+<I>
+    &copy; 2000 by <A HREF="http://www.3rd-evolution.de">3rd-evolution</A><BR>
+</I>
+</FONT>
+</CENTER>
+
+</BODY>
+</HTML>

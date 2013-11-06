@@ -1,0 +1,118 @@
+
+<HTML>
+<!----------------------------- Member ---------------------------------->
+<HEAD>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/opera.css">
+<SCRIPT LANGUAGE="JavaScript" SRC="../common/stylesheet.js"></SCRIPT>
+<TITLE>BeMDI SDK -- CMDIMouseAction::HandleMouseDown</TITLE></HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="top">
+
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+	<TD COLSPAN="2" BGCOLOR="#FFCB00">
+		<FONT FACE="Helvetica" SIZE="+1" CLASS="header">&nbsp;<I>BeMDI SDK</I></FONT>
+	</TD>
+</TR>
+</TABLE>
+
+<FONT FACE="Helvetica" SIZE="-1" >
+<P ALIGN="right" CLASS="linktext">
+	<A HREF="CMDIMouseAction.html"><IMG SRC="../common/arrow_up.gif" BORDER="0"></A>&nbsp;
+	<A HREF="CMDIMouseAction.html">CMDIMouseAction</A>
+</P>
+</FONT>
+
+<FONT FACE="Helvetica" SIZE="5">
+	<B CLASS="classheader">CMDIMouseAction::HandleMouseDown</B>
+</FONT>
+
+<HR NOSHADE>
+
+<DL>
+	<DT>
+	</DT>
+	<DD>
+		<FONT FACE="Helvetica" CLASS="doc">
+		Handles a mouse down event.
+		</FONT>
+		
+		<TABLE WIDTH="100%">
+		<TR>
+			<TD BGCOLOR="#DDDDDD" CLASS="member">
+				<CODE>
+				virtual void <B>HandleMouseDown</B>(BPoint point, int32 hitTestArea, int32 buttons, int32 clicks);
+				
+				</CODE>
+			</TD>
+		<TR>
+		</TABLE>
+		
+	</DD>
+	
+		<DT>
+			<BR><BR>
+			<FONT FACE="Helvetica"><B CLASS="sectionheader">Parameters</B></FONT>
+		</DT>
+		<DD>
+			<TABLE BORDER=0 CELLPADDING=2 CELLSPACING=2>
+<TR><TD CLASS="descr" VALIGN="top" BGCOLOR="#DDDDDD"><B><FONT FACE="Helvetica">point</FONT></B></TD><TD CLASS="member" VALIGN="top" BGCOLOR="#DDDDDD"><FONT FACE=Helvetica>Current mouse position in screen coordinates.</FONT></TD></TR>
+<TR><TD CLASS="descr" VALIGN="top" BGCOLOR="#DDDDDD"><B><FONT FACE="Helvetica">hitTestArea</FONT></B></TD><TD CLASS="member" VALIGN="top" BGCOLOR="#DDDDDD"><FONT FACE=Helvetica>Value returned by <A HREF="IHitTest.html" >IHitTest</A>::HitTest. The remarks section  contains a list possible values.</FONT></TD></TR>
+<TR><TD CLASS="descr" VALIGN="top" BGCOLOR="#DDDDDD"><B><FONT FACE="Helvetica">buttons</FONT></B></TD><TD CLASS="member" VALIGN="top" BGCOLOR="#DDDDDD"><FONT FACE=Helvetica>Combination of B_PRIMARY_MOUSE_BUTTON, B_SECONDARY_MOUSE_BUTTON and B_TERTIARY_MOUSE_BUTTON.</FONT></TD></TR>
+<TR><TD CLASS="descr" VALIGN="top" BGCOLOR="#DDDDDD"><B><FONT FACE="Helvetica">clicks</FONT></B></TD><TD CLASS="member" VALIGN="top" BGCOLOR="#DDDDDD"><FONT FACE=Helvetica>Number of mouse clicks. 1 for single click; 2 for double click etc.</FONT></TD></TR>
+</TABLE>
+
+		</DD>
+	
+	
+		<DT>
+			<BR><BR>
+			<FONT FACE="Helvetica"><B CLASS="sectionheader">Remarks</B></FONT>
+		</DT>
+		<DD>
+			<FONT FACE="Helvetica" CLASS="doc">
+				 <P>Determines the 'mouseAction' from the 'hitTestArea'. It respects the restrictions set
+ for the MDI view. If the MDI view has set the MDI_NOT_RESIZABLE flag, no resize
+ operation is started etc.</P>
+ Possible values for 'hitTestArea':
+ <TABLE BORDER="0" CELLPADDING="2" CELLSPACING="2">
+ <TR><TD CLASS="member" BGCOLOR="#CCCCCC">MDI_NC_NONE</TD>
+ <TD CLASS="descr" BGCOLOR="#CCCCCC">Invalid point.</TD></TR>
+ <TR><TD CLASS="member" BGCOLOR="#CCCCCC">MDI_NC_SIZE_EDGE</TD>
+ <TD CLASS="descr" BGCOLOR="#CCCCCC">Mouse is over the resize edge. Starts a resize operation.</TD></TR>
+ <TR><TD CLASS="member" BGCOLOR="#CCCCCC">MDI_NC_BORDER</TD>
+ <TD CLASS="descr" BGCOLOR="#CCCCCC">Mouse is over the border. A double click minimizes the view, 
+ a single click starts a move operation.</TD></TR>
+ <TR><TD CLASS="member" BGCOLOR="#CCCCCC">MDI_NC_CLOSE_BOX</TD>
+ <TD CLASS="descr" BGCOLOR="#CCCCCC">Mouse is over the close box. 
+ This value is ignored by this class.</TD></TR>
+ <TR><TD CLASS="member" BGCOLOR="#CCCCCC">MDI_NC_MAXIMIZE_BOX</TD>
+ <TD CLASS="descr" BGCOLOR="#CCCCCC">Mouse is over the maximize box. Ignored.</TD></TR>
+ <TR><TD CLASS="member" BGCOLOR="#CCCCCC">MDI_NC_TITLE_TAB</TD>
+ <TD CLASS="descr" BGCOLOR="#CCCCCC">Mouse is over the title tab. This class handles this
+ value like MDI_NC_BORDER.</TD></TR>
+ </TABLE>
+
+				
+			</FONT>
+		</DD>
+	
+</DL>
+
+<FONT FACE="Helvetica" SIZE="-1">
+	<P ALIGN="right" CLASS="linktext">
+		<A HREF="#top"><IMG SRC="../common/arrow_top.gif" BORDER="0"></A>&nbsp;
+		<A HREF="#top">Top</A>
+	</P>
+</FONT>
+<HR NOSHADE>
+<CENTER>
+<FONT FACE="Helvetica" SIZE="-1" CLASS="footer">
+<I>
+	&copy; 2000 by <A HREF="http://www.3rd-evolution.de">3rd-evolution</A><BR>
+</I>
+</FONT>
+</CENTER>
+
+</BODY>
+</HTML>

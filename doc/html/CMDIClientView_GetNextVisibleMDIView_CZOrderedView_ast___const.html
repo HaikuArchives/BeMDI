@@ -1,0 +1,85 @@
+
+<HTML>
+<!----------------------------- Member ---------------------------------->
+<HEAD>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/opera.css">
+<SCRIPT LANGUAGE="JavaScript" SRC="../common/stylesheet.js"></SCRIPT>
+<TITLE>BeMDI SDK -- CMDIClientView::GetNextVisibleMDIView</TITLE></HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="top">
+
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+	<TD COLSPAN="2" BGCOLOR="#FFCB00">
+		<FONT FACE="Helvetica" SIZE="+1" CLASS="header">&nbsp;<I>BeMDI SDK</I></FONT>
+	</TD>
+</TR>
+</TABLE>
+
+<FONT FACE="Helvetica" SIZE="-1" >
+<P ALIGN="right" CLASS="linktext">
+	<A HREF="CMDIClientView.html"><IMG SRC="../common/arrow_up.gif" BORDER="0"></A>&nbsp;
+	<A HREF="CMDIClientView.html">CMDIClientView</A>
+</P>
+</FONT>
+
+<FONT FACE="Helvetica" SIZE="5">
+	<B CLASS="classheader">CMDIClientView::GetNextVisibleMDIView</B>
+</FONT>
+
+<HR NOSHADE>
+
+<DL>
+	<DT>
+	</DT>
+	<DD>
+		<FONT FACE="Helvetica" CLASS="doc">
+		Walk through the list of visible MDI views.
+		</FONT>
+		
+		<TABLE WIDTH="100%">
+		<TR>
+			<TD BGCOLOR="#DDDDDD" CLASS="member">
+				<CODE>
+				virtual <A HREF="CMDIView.html" >CMDIView</A> *<B>GetNextVisibleMDIView</B>(<A HREF="CZOrderedView.html" >CZOrderedView</A> *startView) const;
+				
+				</CODE>
+			</TD>
+		<TR>
+		</TABLE>
+		
+	</DD>
+	
+	
+		<DT>
+			<BR><BR>
+			<FONT FACE="Helvetica"><B CLASS="sectionheader">Remarks</B></FONT>
+		</DT>
+		<DD>
+			<FONT FACE="Helvetica" CLASS="doc">
+				 This function returns the next visible MDI view beneath 'startView' in the z-order. 
+ If you pass NULL as 'startView' this method returns the top-most visible view.
+
+				
+			</FONT>
+		</DD>
+	
+</DL>
+
+<FONT FACE="Helvetica" SIZE="-1">
+	<P ALIGN="right" CLASS="linktext">
+		<A HREF="#top"><IMG SRC="../common/arrow_top.gif" BORDER="0"></A>&nbsp;
+		<A HREF="#top">Top</A>
+	</P>
+</FONT>
+<HR NOSHADE>
+<CENTER>
+<FONT FACE="Helvetica" SIZE="-1" CLASS="footer">
+<I>
+	&copy; 2000 by <A HREF="http://www.3rd-evolution.de">3rd-evolution</A><BR>
+</I>
+</FONT>
+</CENTER>
+
+</BODY>
+</HTML>

@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/opera.css">
+<SCRIPT LANGUAGE="JavaScript" SRC="../common/stylesheet.js"></SCRIPT>
+<TITLE>BeMDI SDK -- Tutorial Step 2</TITLE></HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="top">
+
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+    <TD COLSPAN="2" BGCOLOR="#FFCB00">
+        <FONT FACE="Helvetica" SIZE="+1" CLASS="header">&nbsp;<I>BeMDI SDK</I></FONT>
+    </TD>
+</TR>
+</TABLE>
+
+
+<TABLE BORDER="0" WIDTH="100%">
+<TR>
+<TD ALIGN="left" WIDTH="33%">
+    <A HREF="tutorial_1.html"><IMG SRC="../common/arrow_left.gif" ALT="left" BORDER="0"></A>&nbsp;
+    <A HREF="tutorial_1.html"><FONT FACE="Helvetica" SIZE="-1" CLASS="linktext">1. Prepare your project</FONT></A>
+</TD>
+<TD ALIGN="center" WIDTH="33%">
+    <A HREF="tutorial_3.html"><IMG SRC="../common/arrow_right.gif" ALT="right" BORDER="0"></A>&nbsp;
+    <A HREF="tutorial_3.html"><FONT FACE="Helvetica" SIZE="-1" CLASS="linktext">3. Add a MDI client view your window</FONT></A>
+</TD>
+<TD ALIGN="right">
+    <A HREF="index.html"><IMG SRC="../common/arrow_up.gif" ALT="up" BORDER="0"></A>&nbsp;
+    <A HREF="index.html"><FONT FACE="Helvetica" SIZE="-1" CLASS="linktext">Tutorial Index</FONT></A>
+</TD>
+</TR>
+</TABLE>
+
+
+<FONT FACE="Helvetica" SIZE="5">
+    <B CLASS="classheader">2. Create a window and a menubar</B>
+</FONT>
+
+<HR NOSHADE>
+
+<FONT FACE="Helvetica">
+<P CLASS="doc">
+Now we are ready to create a window class which will later serve as
+MDI frame window. The menubar will contain a 'Window' sub-menu which
+allows the user to activate specific MDI view and to arrange them.
+</P>
+</FONT>
+
+<CODE>
+<PRE>
+#include "MDIClientView.h"
+#include "MDIViewMenu.h"
+
+class CExampleWindow : public BWindow
+{
+    public:
+    CExampleWindow(BRect frame = BRect(50, 50, 750, 750));
+
+    virtual bool QuitRequested();
+};
+
+CExampleWindow::CExampleWindow(BRect frame) :
+    BWindow(frame, "MDI Example", B_DOCUMENT_WINDOW,
+        B_ASYNCHRONOUS_CONTROLS)
+{
+    BMenuBar *menuBar = new BMenuBar(BRect(0,0,0,0), "MainMenuBar");
+
+    AddChild(menuBar);
+    SetKeyMenuBar(menuBar);
+
+    BMenu *fileSubMenu = new BMenu("File");
+
+    fileSubMenu-&gt;AddItem(new BMenuItem("Quit", 
+         new BMessage(B_QUIT_REQUESTED), 'Q'));
+    
+    menuBar-&gt;AddItem(fileSubMenu);
+}
+
+bool CExampleWindow::QuitRequested()
+{
+    // exit application
+    be_app-&gt;PostMessage(B_QUIT_REQUESTED);
+        
+    return true;
+}
+</PRE>
+</CODE>
+
+<FONT FACE="Helvetica" SIZE="-1">
+    <P ALIGN="right" CLASS="linktext">
+        <A HREF="#top"><IMG SRC="../common/arrow_top.gif" BORDER="0"></A>&nbsp;
+        <A HREF="#top">Top</A>
+    </P>
+</FONT>
+<HR NOSHADE>
+<CENTER>
+<FONT FACE="Helvetica" SIZE="-1" CLASS="footer">
+<I>
+    &copy; 2000 by <A HREF="http://www.3rd-evolution.de">3rd-evolution</A><BR>
+</I>
+</FONT>
+</CENTER>
+
+</BODY>
+</HTML>

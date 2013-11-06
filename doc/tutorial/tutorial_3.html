@@ -1,0 +1,89 @@
+<HTML>
+<HEAD>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/opera.css">
+<SCRIPT LANGUAGE="JavaScript" SRC="../common/stylesheet.js"></SCRIPT>
+<TITLE>BeMDI SDK -- Tutorial Step 3</TITLE></HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="top">
+
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+    <TD COLSPAN="2" BGCOLOR="#FFCB00">
+        <FONT FACE="Helvetica" SIZE="+1" CLASS="header">&nbsp;<I>BeMDI SDK</I></FONT>
+    </TD>
+</TR>
+</TABLE>
+
+
+<TABLE BORDER="0" WIDTH="100%">
+<TR>
+<TD ALIGN="left" WIDTH="33%">
+    <A HREF="tutorial_2.html"><IMG SRC="../common/arrow_left.gif" ALT="left" BORDER="0"></A>&nbsp;
+    <A HREF="tutorial_2.html"><FONT FACE="Helvetica" SIZE="-1" CLASS="linktext">2. Create a window and a menubar</FONT></A>
+</TD>
+<TD ALIGN="center" WIDTH="33%">
+    <A HREF="tutorial_4.html"><IMG SRC="../common/arrow_right.gif" ALT="right" BORDER="0"></A>&nbsp;
+    <A HREF="tutorial_4.html"><FONT FACE="Helvetica" SIZE="-1" CLASS="linktext">4. Add a MDI view menu</FONT></A>
+</TD>
+<TD ALIGN="right">
+    <A HREF="index.html"><IMG SRC="../common/arrow_up.gif" ALT="up" BORDER="0"></A>&nbsp;
+    <A HREF="index.html"><FONT FACE="Helvetica" SIZE="-1" CLASS="linktext">Tutorial Index</FONT></A>
+</TD>
+</TR>
+</TABLE>
+
+
+<FONT FACE="Helvetica" SIZE="5">
+    <B CLASS="classheader">3. Add a MDI client view your window</B>
+</FONT>
+
+<HR NOSHADE>
+
+<FONT FACE="Helvetica">
+<P CLASS="doc">
+Before we can display any MDI views in our window, we will need a MDI
+client view. The client view needs to be target of a BScrollView.
+Normally the scrollbars of the scroll view are hidden. But as soon the
+user moves a MDI view outside the visible client area the scrollbars
+are displayed and the user can scroll the client area.
+</P>
+</FONT>
+
+<CODE>
+<PRE>
+CExampleWindow::CExampleWindow(...)
+{
+    ....
+
+    BRect clientRect(0, menuBar->Bounds().Height() + 1,
+                frame.Width()-B_V_SCROLL_BAR_WIDTH,
+                frame.Height()-B_H_SCROLL_BAR_HEIGHT);
+
+    CMDIClientView *client = new CMDIClientView(clientRect,
+    "ClientView");
+
+    BScrollView *scrollView = new BScrollView("MDIScroller", client,
+        B_FOLLOW_ALL, 0, true, true, B_NO_BORDER);
+        
+    AddChild(scrollView);
+}
+</PRE>
+</CODE>
+
+<FONT FACE="Helvetica" SIZE="-1">
+    <P ALIGN="right" CLASS="linktext">
+        <A HREF="#top"><IMG SRC="../common/arrow_top.gif" BORDER="0"></A>&nbsp;
+        <A HREF="#top">Top</A>
+    </P>
+</FONT>
+<HR NOSHADE>
+<CENTER>
+<FONT FACE="Helvetica" SIZE="-1" CLASS="footer">
+<I>
+    &copy; 2000 by <A HREF="http://www.3rd-evolution.de">3rd-evolution</A><BR>
+</I>
+</FONT>
+</CENTER>
+
+</BODY>
+</HTML>

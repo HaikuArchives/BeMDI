@@ -1,0 +1,110 @@
+<HTML>
+<HEAD>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/opera.css">
+<SCRIPT LANGUAGE="JavaScript" SRC="../common/stylesheet.js"></SCRIPT>
+<TITLE>BeMDI SDK -- Tutorial Step 4</TITLE></HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="top">
+
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+    <TD COLSPAN="2" BGCOLOR="#FFCB00">
+        <FONT FACE="Helvetica" SIZE="+1" CLASS="header">&nbsp;<I>BeMDI SDK</I></FONT>
+    </TD>
+</TR>
+</TABLE>
+
+
+<TABLE BORDER="0" WIDTH="100%">
+<TR>
+<TD ALIGN="left" WIDTH="33%">
+    <A HREF="tutorial_3.html"><IMG SRC="../common/arrow_left.gif" ALT="left" BORDER="0"></A>&nbsp;
+    <A HREF="tutorial_3.html"><FONT FACE="Helvetica" SIZE="-1" CLASS="linktext">3. Add a MDI client view your window</FONT></A>
+</TD>
+<TD ALIGN="center" WIDTH="33%">
+    <A HREF="tutorial_5.html"><IMG SRC="../common/arrow_right.gif" ALT="right" BORDER="0"></A>&nbsp;
+    <A HREF="tutorial_5.html"><FONT FACE="Helvetica" SIZE="-1" CLASS="linktext">5. Create some MDI views</FONT></A>
+</TD>
+<TD ALIGN="right">
+    <A HREF="index.html"><IMG SRC="../common/arrow_up.gif" ALT="up" BORDER="0"></A>&nbsp;
+    <A HREF="index.html"><FONT FACE="Helvetica" SIZE="-1" CLASS="linktext">Tutorial Index</FONT></A>
+</TD>
+</TR>
+</TABLE>
+
+
+<FONT FACE="Helvetica" SIZE="5">
+    <B CLASS="classheader">4. Add a MDI view menu</B>
+</FONT>
+
+<HR NOSHADE>
+
+<FONT FACE="Helvetica">
+<P CLASS="doc">
+Now we will create a typical 'Window' menu which allows the user to
+stack the MDI views and tile them vertical and horizontal.
+</P>
+</FONT>
+
+<FONT FACE="Helvetica">
+<P CLASS="doc">
+The 'Window' menu also contains a list of all MDI views inside the
+client area. This list is updated before the menu is displayed in the
+implementation of MenusBeginning().
+</P>
+</FONT>
+
+<FONT FACE="Helvetica">
+<P CLASS="doc">
+If you allow the user to minimize MDI views you need to add a 'Window'
+menu. Currently this menu is the only way to restore minimized MDI
+views, because they don't have any other on-screen representation.
+</P>
+</FONT>
+
+<CODE>
+<PRE>
+CExampleWindow::CExampleWindow(...)
+{
+    ....
+
+    BMenu *windowSubMenu    = new CMDIViewMenu(client, "Window");
+
+    windowSubMenu->AddItem(new BMenuItem("Tile vertical", 
+        new BMessage(MDI_MSG_TILE_VIEWS_VERTICAL)));
+    windowSubMenu->AddItem(new BMenuItem("Tile horizontal", 
+        new BMessage(MDI_MSG_TILE_VIEWS_HORIZONTAL)));
+    windowSubMenu->AddItem(new BMenuItem("Stack", 
+        new BMessage(MDI_MSG_STACK_VIEWS)));
+
+    menuBar->AddItem(windowSubMenu);
+}
+
+void CExampleWindow::MenusBeginning()
+{
+    CMDIViewMenu *windowSubMenu = 
+        dynamic_cast&lt;CMDIViewMenu *&gt;(KeyMenuBar()->ItemAt(1)->Submenu());
+        
+    windowSubMenu->UpdateViewItems();
+    windowSubMenu->SetTargetForItems(client);
+}
+</PRE>
+</CODE>
+
+<FONT FACE="Helvetica" SIZE="-1">
+    <P ALIGN="right" CLASS="linktext">
+        <A HREF="#top"><IMG SRC="../common/arrow_top.gif" BORDER="0"></A>&nbsp;
+        <A HREF="#top">Top</A>
+    </P>
+</FONT>
+<HR NOSHADE>
+<CENTER>
+<FONT FACE="Helvetica" SIZE="-1" CLASS="footer">
+<I>
+    &copy; 2000 by <A HREF="http://www.3rd-evolution.de">3rd-evolution</A><BR>
+</I>
+</FONT>
+</CENTER>
+
+</BODY>
+</HTML>

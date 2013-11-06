@@ -1,0 +1,148 @@
+
+<HTML>
+<!----------------------------- Member ---------------------------------->
+<HEAD>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/opera.css">
+<SCRIPT LANGUAGE="JavaScript" SRC="../common/stylesheet.js"></SCRIPT>
+<TITLE>BeMDI SDK -- CMDIView::CMDIView</TITLE></HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="top">
+
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+	<TD COLSPAN="2" BGCOLOR="#FFCB00">
+		<FONT FACE="Helvetica" SIZE="+1" CLASS="header">&nbsp;<I>BeMDI SDK</I></FONT>
+	</TD>
+</TR>
+</TABLE>
+
+<FONT FACE="Helvetica" SIZE="-1" >
+<P ALIGN="right" CLASS="linktext">
+	<A HREF="CMDIView.html"><IMG SRC="../common/arrow_up.gif" BORDER="0"></A>&nbsp;
+	<A HREF="CMDIView.html">CMDIView</A>
+</P>
+</FONT>
+
+<FONT FACE="Helvetica" SIZE="5">
+	<B CLASS="classheader">CMDIView::CMDIView</B>
+</FONT>
+
+<HR NOSHADE>
+
+<DL>
+	<DT>
+	</DT>
+	<DD>
+		<FONT FACE="Helvetica" CLASS="doc">
+		Constructor
+		</FONT>
+		
+		<TABLE WIDTH="100%">
+		<TR>
+			<TD BGCOLOR="#DDDDDD" CLASS="member">
+				<CODE>
+				<B>CMDIView</B>(BRect frame, const char *name, uint32 mdiFlags=0, uint32 resizingMode=B_FOLLOW_NONE, uint32 flags=0);
+				
+				</CODE>
+			</TD>
+		<TR>
+		</TABLE>
+		
+	</DD>
+	
+		<DT>
+			<BR><BR>
+			<FONT FACE="Helvetica"><B CLASS="sectionheader">Parameters</B></FONT>
+		</DT>
+		<DD>
+			<TABLE BORDER=0 CELLPADDING=2 CELLSPACING=2>
+<TR><TD CLASS="descr" VALIGN="top" BGCOLOR="#DDDDDD"><B><FONT FACE="Helvetica">frame</FONT></B></TD><TD CLASS="member" VALIGN="top" BGCOLOR="#DDDDDD"><FONT FACE=Helvetica>Position inside the parent view.</FONT></TD></TR>
+<TR><TD CLASS="descr" VALIGN="top" BGCOLOR="#DDDDDD"><B><FONT FACE="Helvetica">name</FONT></B></TD><TD CLASS="member" VALIGN="top" BGCOLOR="#DDDDDD"><FONT FACE=Helvetica>Internal name and title of this MDI view.</FONT></TD></TR>
+<TR><TD CLASS="descr" VALIGN="top" BGCOLOR="#DDDDDD"><B><FONT FACE="Helvetica">_mdiFlags</FONT></B></TD><TD CLASS="member" VALIGN="top" BGCOLOR="#DDDDDD"><FONT FACE=Helvetica>Flags. See remarks section for details.</FONT></TD></TR>
+<TR><TD CLASS="descr" VALIGN="top" BGCOLOR="#DDDDDD"><B><FONT FACE="Helvetica">resizingMode</FONT></B></TD><TD CLASS="member" VALIGN="top" BGCOLOR="#DDDDDD"><FONT FACE=Helvetica>BeOS resizing mode. Should be B_FOLLOW_NONE.</FONT></TD></TR>
+<TR><TD CLASS="descr" VALIGN="top" BGCOLOR="#DDDDDD"><B><FONT FACE="Helvetica">flags</FONT></B></TD><TD CLASS="member" VALIGN="top" BGCOLOR="#DDDDDD"><FONT FACE=Helvetica>BeOS flag combination. B_WILL_DRAW, B_FULL_UPDATE_ON_RESIZE and B_FRAME_EVENTS are automatically added, before the flags are passed to the <A HREF="CTitledView.html" >CTitledView</A> constructor.</FONT></TD></TR>
+</TABLE>
+
+		</DD>
+	
+	
+		<DT>
+			<BR><BR>
+			<FONT FACE="Helvetica"><B CLASS="sectionheader">Remarks</B></FONT>
+		</DT>
+		<DD>
+			<FONT FACE="Helvetica" CLASS="doc">
+				 The parameter '_mdiFlags' can be combination of following values:
+ <TABLE>
+   <TR>
+     <TD CLASS="member" BGCOLOR="#DDDDDD">MDI_NOT_MOVABLE</TD>
+     <TD CLASS="descr" BGCOLOR="#DDDDDD">
+       View isn't movable.
+     </TD>
+   </TR>
+   <TR>
+     <TD CLASS="member" BGCOLOR="#DDDDDD">MDI_NOT_CLOSABLE</TD>
+     <TD CLASS="descr" BGCOLOR="#DDDDDD">
+       The title tab doesn't contain a close button. The user can't
+       close MDI views which have this flag set.
+     </TD>
+   </TR>
+   <TR>
+     <TD CLASS="member" BGCOLOR="#DDDDDD">MDI_NOT_RESIZABLE</TD>
+     <TD CLASS="descr" BGCOLOR="#DDDDDD">
+       View isn't resizable. Set this flag if your MDI child view isn't
+       resizable. Should be combinated with the MDI_NOT_MAXIMIZABLE flag.
+     </TD>
+   </TR>
+   <TR>
+     <TD CLASS="member" BGCOLOR="#DDDDDD">MDI_NO_TITLE_TAB</TD>
+     <TD CLASS="descr" BGCOLOR="#DDDDDD">
+       Don't create a title tab for this view. The user can't close a
+       a view without a title tab.
+     </TD>
+   </TR>
+   <TR>
+     <TD CLASS="member" BGCOLOR="#DDDDDD">MDI_REDRAW_BELOW</TD>
+     <TD CLASS="descr" BGCOLOR="#DDDDDD">
+        Force redraw for views below, whenever this view is moved
+        or resized. Set this flag, if your view has a view color
+        other than TRANSPARENT. You should avoid this,
+        because it's a lot slower. (And flickers).
+     </TD>
+   </TR>
+   <TR>
+     <TD CLASS="member" BGCOLOR="#DDDDDD">MDI_NOT_MINIMIZABLE</TD>
+     <TD CLASS="descr" BGCOLOR="#DDDDDD">View isn't minimizable.</TD>
+   </TR>
+   <TR>
+     <TD CLASS="member" BGCOLOR="#DDDDDD">MDI_NOT_MAXIMIZABLE</TD>
+     <TD CLASS="descr" BGCOLOR="#DDDDDD">
+       View isn't maximizable. You should set this flag if you have also
+       set MDI_NOT_RESIZABLE.
+     </TD>
+   </TR>
+ </TABLE>
+
+				
+			</FONT>
+		</DD>
+	
+</DL>
+
+<FONT FACE="Helvetica" SIZE="-1">
+	<P ALIGN="right" CLASS="linktext">
+		<A HREF="#top"><IMG SRC="../common/arrow_top.gif" BORDER="0"></A>&nbsp;
+		<A HREF="#top">Top</A>
+	</P>
+</FONT>
+<HR NOSHADE>
+<CENTER>
+<FONT FACE="Helvetica" SIZE="-1" CLASS="footer">
+<I>
+	&copy; 2000 by <A HREF="http://www.3rd-evolution.de">3rd-evolution</A><BR>
+</I>
+</FONT>
+</CENTER>
+
+</BODY>
+</HTML>

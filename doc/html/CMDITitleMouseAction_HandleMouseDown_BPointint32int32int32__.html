@@ -1,0 +1,88 @@
+
+<HTML>
+<!----------------------------- Member ---------------------------------->
+<HEAD>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/opera.css">
+<SCRIPT LANGUAGE="JavaScript" SRC="../common/stylesheet.js"></SCRIPT>
+<TITLE>BeMDI SDK -- CMDITitleMouseAction::HandleMouseDown</TITLE></HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="top">
+
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+	<TD COLSPAN="2" BGCOLOR="#FFCB00">
+		<FONT FACE="Helvetica" SIZE="+1" CLASS="header">&nbsp;<I>BeMDI SDK</I></FONT>
+	</TD>
+</TR>
+</TABLE>
+
+<FONT FACE="Helvetica" SIZE="-1" >
+<P ALIGN="right" CLASS="linktext">
+	<A HREF="CMDITitleMouseAction.html"><IMG SRC="../common/arrow_up.gif" BORDER="0"></A>&nbsp;
+	<A HREF="CMDITitleMouseAction.html">CMDITitleMouseAction</A>
+</P>
+</FONT>
+
+<FONT FACE="Helvetica" SIZE="5">
+	<B CLASS="classheader">CMDITitleMouseAction::HandleMouseDown</B>
+</FONT>
+
+<HR NOSHADE>
+
+<DL>
+	<DT>
+	</DT>
+	<DD>
+		<FONT FACE="Helvetica" CLASS="doc">
+		Handles a mouse down event.
+		</FONT>
+		
+		<TABLE WIDTH="100%">
+		<TR>
+			<TD BGCOLOR="#DDDDDD" CLASS="member">
+				<CODE>
+				virtual void <B>HandleMouseDown</B>(BPoint point, int32 hitTestArea, int32 buttons, int32 clicks);
+				
+				</CODE>
+			</TD>
+		<TR>
+		</TABLE>
+		
+	</DD>
+	
+	
+		<DT>
+			<BR><BR>
+			<FONT FACE="Helvetica"><B CLASS="sectionheader">Remarks</B></FONT>
+		</DT>
+		<DD>
+			<FONT FACE="Helvetica" CLASS="doc">
+				 If the mouse is over the close box, the close box is pressed. But the view is
+ only closed if the mouse is still over the close box, if the mouse button is going up.
+ If the mouse button is moved outside the close box rectangle while the mouse
+ button is pressed, the close box toggles its state. The same is true for the
+ maximize button.
+
+				
+			</FONT>
+		</DD>
+	
+</DL>
+
+<FONT FACE="Helvetica" SIZE="-1">
+	<P ALIGN="right" CLASS="linktext">
+		<A HREF="#top"><IMG SRC="../common/arrow_top.gif" BORDER="0"></A>&nbsp;
+		<A HREF="#top">Top</A>
+	</P>
+</FONT>
+<HR NOSHADE>
+<CENTER>
+<FONT FACE="Helvetica" SIZE="-1" CLASS="footer">
+<I>
+	&copy; 2000 by <A HREF="http://www.3rd-evolution.de">3rd-evolution</A><BR>
+</I>
+</FONT>
+</CENTER>
+
+</BODY>
+</HTML>
