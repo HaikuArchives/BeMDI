@@ -17,7 +17,7 @@
 
 //! file=Decoration.h
 
-#include "Color.h"
+#include <mdi/Color.h>
 
 //: Interface for all decorations
 // A decoration acts as a light-weight subview. It doesn't process

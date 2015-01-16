@@ -15,8 +15,8 @@
 
 //! file=MDIClientView.h
 
-#include "MDITitleView.h"
-#include "MDIView.h"
+#include <mdi/MDITitleView.h>
+#include <mdi/MDIView.h>
 
 class CMaximizeButtonView;
 

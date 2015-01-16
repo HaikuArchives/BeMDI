@@ -37,24 +37,9 @@ bool operator == (const CColor &o1, const CColor &o2)
 	return (const rgb_color &)o1 == (const rgb_color &)o2;
 }
 
-//: Compares two rgb_colors structures. Returns true if 
-//: every color component and the alpha channel are identical.
-bool operator == (const rgb_color &o1, const rgb_color &o2)
-{
-	return o1.red   == o2.red   &&
-		   o1.green == o2.green &&
-		   o1.blue  == o2.blue  &&
-		   o1.alpha == o2.alpha;
-}
-
 bool operator != (const CColor &o1, const CColor &o2)
 {
 	return !((const rgb_color &)o1 == (const rgb_color &)o2);
-}
-
-bool operator != (const rgb_color &o1, const rgb_color &o2)
-{
-	return !(o1 == o2);
 }
 
 // ====== CColor ======

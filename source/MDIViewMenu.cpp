@@ -52,7 +52,7 @@ void CMDIViewMenu::UpdateViewItems()
 
 void CMDIViewMenu::AddViewItems()
 {
-	typedef vector< pair<string, CMDIView *> > t_item_vector; 
+	typedef std::vector< pair<string, CMDIView *> > t_item_vector; 
 	t_item_vector item_vector;
 	
 	CMDIView *currentView=NULL;

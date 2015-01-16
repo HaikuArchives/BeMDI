@@ -17,7 +17,7 @@
 
 //! file=TitledView.h
 
-#include "ZOrderedView.h"
+#include <mdi/ZOrderedView.h>
 
 class CTitledView;
 

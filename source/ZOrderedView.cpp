@@ -350,8 +350,8 @@ void CZOrderedViewManager::Z_ViewPositionChanged(CZOrderedView *view, BRect oldP
 	CZOrderedView *startView = NULL;
 	BRegion clippingRegion;
 
-	BRect updateRect=changedRect;			// outline rectangle of updated views
-	vector<CZOrderedView *> updatedViews;	// List of views that need reclipping
+	BRect updateRect=changedRect;				// outline rectangle of updated views
+	std::vector<CZOrderedView *> updatedViews;	// List of views that need reclipping
 
 	// Calc new clipping for changed areas (including the modified view).
 	for(CZOrderedView *current = view ; current ; current = current->Below()) {

@@ -104,8 +104,6 @@ class CColor : public rgb_color
 };
 
 bool operator == (const CColor &o1, const CColor &o2);
-bool operator == (const rgb_color &o1, const rgb_color &o2);
 bool operator != (const CColor &o1, const CColor &o2);
-bool operator != (const rgb_color &o1, const rgb_color &o2);
 
 #endif // COLOR_H
