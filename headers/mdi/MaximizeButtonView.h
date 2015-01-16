@@ -17,7 +17,7 @@
 
 //! file=MaximizeButtonView.h
 
-#include "Decoration.h"
+#include <mdi/Decoration.h>
 
 //: Displays a BeOS style maximize button.
 // This class is derived from BControl and behaves like any other

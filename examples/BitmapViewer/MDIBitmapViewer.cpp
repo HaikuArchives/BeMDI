@@ -3,9 +3,9 @@
  */
 
 #include "pch.h"
-#include "Color.h"
-#include "MDIClientView.h"
-#include "MDIViewMenu.h"
+#include <mdi/Color.h>
+#include <mdi/MDIClientView.h>
+#include <mdi/MDIViewMenu.h>
 
 #include "MDIBitmapViewer.h"
 

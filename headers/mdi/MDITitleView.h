@@ -17,11 +17,11 @@
 
 //! file=MDITitleView.h
 
-#include "ViewAction.h"
-#include "Decoration.h"
-#include "Color.h"
-#include "TitledView.h"
-#include "MDICommon.h"
+#include <mdi/ViewAction.h>
+#include <mdi/Decoration.h>
+#include <mdi/Color.h>
+#include <mdi/TitledView.h>
+#include <mdi/MDICommon.h>
 
 class CMDITitleMouseAction;
 

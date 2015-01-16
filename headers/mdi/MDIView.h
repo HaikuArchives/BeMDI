@@ -17,9 +17,9 @@
 
 //! file=MDIView.h
 
-#include "ViewAction.h"
-#include "TitledView.h"
-#include "MDICommon.h"
+#include <mdi/ViewAction.h>
+#include <mdi/TitledView.h>
+#include <mdi/MDICommon.h>
 
 class CMDIClientView;
 class CMDIMouseAction;
