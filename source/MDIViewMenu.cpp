@@ -31,6 +31,8 @@
 #include "MDIClientView.h"
 #include "MDIViewMenu.h"
 
+using namespace std;
+
 //: Constructor
 //!param:  client    - MDI client view.
 //!param:  name      - Name of this menu.

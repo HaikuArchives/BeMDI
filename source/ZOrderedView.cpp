@@ -30,6 +30,8 @@
 #include "Color.h"
 #include "ZOrderedView.h"
 
+using namespace std;
+
 // ==== CZOrderedView ====
 
 //: Constructor
